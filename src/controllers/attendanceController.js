@@ -1,12 +1,13 @@
-const Attendance = require('../models/Attendance');
-const Student = require('../models/Student');
-const Batch = require('../models/Batch');
+import Attendance from '../models/Attendance.js';
+import Student from '../models/Student.js';
+import Batch from '../models/Batch.js';
+// Note: Make sure Attendance.js, Student.js, and Batch.js models are using 'export default'
 
 /**
  * Mark attendance for multiple students (auto-save on click)
  * Supports updating existing attendance or creating new
  */
-exports.markAttendance = async (req, res) => {
+const markAttendance = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, date, attendance } = req.body;
@@ -110,7 +111,7 @@ exports.markAttendance = async (req, res) => {
  * Mark entire batch as holiday
  * Sets all students' status to 'holiday'
  */
-exports.markHoliday = async (req, res) => {
+const markHoliday = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, date, holidayReason } = req.body;
@@ -204,7 +205,7 @@ exports.markHoliday = async (req, res) => {
  * Get attendance for a specific date
  * Paginated to support 8-10 students per screen
  */
-exports.getDateAttendance = async (req, res) => {
+const getDateAttendance = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, date } = req.query;
@@ -308,7 +309,7 @@ exports.getDateAttendance = async (req, res) => {
 /**
  * Get absent students list for a specific date
  */
-exports.getAbsentStudents = async (req, res) => {
+const getAbsentStudents = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, date } = req.query;
@@ -392,7 +393,7 @@ exports.getAbsentStudents = async (req, res) => {
 /**
  * Get monthly absent count for a student
  */
-exports.getMonthlyAbsentCount = async (req, res) => {
+const getMonthlyAbsentCount = async (req, res) => {
   try {
     const { coachId } = req;
     const { studentId, year, month } = req.query;
@@ -481,7 +482,7 @@ exports.getMonthlyAbsentCount = async (req, res) => {
  * Get monthly attendance report for a batch
  * Includes statistics and absent students list
  */
-exports.getMonthlyReport = async (req, res) => {
+const getMonthlyReport = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, year, month } = req.query;
@@ -624,7 +625,7 @@ exports.getMonthlyReport = async (req, res) => {
  * Get attendance records for a date range
  * Useful for viewing past attendance data
  */
-exports.getAttendanceRange = async (req, res) => {
+const getAttendanceRange = async (req, res) => {
   try {
     const { coachId } = req;
     const { batchId, startDate, endDate } = req.query;
@@ -680,4 +681,17 @@ exports.getAttendanceRange = async (req, res) => {
       error: error.message,
     });
   }
+};
+
+// ===============================================
+// EXPORTING ALL FUNCTIONS AS DEFAULT MODULE
+// ===============================================
+export default {
+    markAttendance,
+    markHoliday,
+    getDateAttendance,
+    getAbsentStudents,
+    getMonthlyAbsentCount,
+    getMonthlyReport,
+    getAttendanceRange,
 };

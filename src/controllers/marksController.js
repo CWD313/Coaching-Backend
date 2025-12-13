@@ -1,7 +1,6 @@
 import Test from '../models/Test.js';
 import TestMarks from '../models/TestMarks.js';
 import Student from '../models/Student.js';
-import Batch from '../models/Batch.js';
 
 /**
  * Add a new test

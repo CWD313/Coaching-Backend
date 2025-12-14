@@ -99,4 +99,8 @@ TestSchema.pre('save', function (next) {
   next();
 });
 
-export default mongoose.model('Test', TestSchema);
+// ----------------------------------------------------
+// ✅ FIX: Default Export को Named Export में बदल दिया गया 
+// ----------------------------------------------------
+export const Test = mongoose.model('Test', TestSchema);
+// old: export default mongoose.model('Test', TestSchema);

@@ -3,7 +3,8 @@ import { verifyToken } from '../utils/tokenUtils.js';
 /**
  * Middleware to verify JWT token and protect routes
  */
-export const authMiddleware = async (req, res, next) => {
+// अब यह const declaration है, export नहीं
+const authMiddleware = async (req, res, next) => {
   try {
     // Get token from header
     const token = req.headers.authorization?.split(' ')[1];
@@ -26,3 +27,8 @@ export const authMiddleware = async (req, res, next) => {
     });
   }
 };
+
+// ----------------------------------------------------
+// ✅ FIX: Named Export (export const ...) को Default Export में बदला गया
+// ----------------------------------------------------
+export default authMiddleware;

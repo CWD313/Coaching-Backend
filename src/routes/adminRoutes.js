@@ -1,6 +1,6 @@
 import express from 'express';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
-import { loadTenantFlags } from '../middlewares/tenantFlags.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+import loadTenantFlags from '../middlewares/tenantFlags.js';
 import adminController from '../controllers/adminController.js';
 
 const router = express.Router();

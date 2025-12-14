@@ -5,7 +5,6 @@ import { Test } from '../models/Test.js';
 import { TestMarks } from '../models/TestMarks.js';
 import { Student } from '../models/Student.js';
 // ✅ FIX 2: Batch मॉडल जोड़ा गया (माना जाता है कि यह Named Export है)
-import { Batch } from '../models/Batch.js'; 
 
 
 /**

@@ -12,7 +12,10 @@ import {
   getStudentsByBatch,
   getStudentStats
 } from '../controllers/studentController.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+// ---------------------------------------------------------------------
+// ✅ FIX: Named Import { authMiddleware } को Default Import authMiddleware में बदला गया
+// ---------------------------------------------------------------------
+import authMiddleware from '../middlewares/authMiddleware.js'; 
 import { loadTenantFlags } from '../middlewares/tenantFlags.js';
 import {
   validateAddStudent,
@@ -26,7 +29,8 @@ const router = express.Router();
 /**
  * All routes require authentication and tenant flags loaded
  */
-router.use(authMiddleware);
+// यह लाइन ठीक है क्योंकि authMiddleware एक वेरिएबल बन गया है
+router.use(authMiddleware); 
 router.use(loadTenantFlags);
 
 /**

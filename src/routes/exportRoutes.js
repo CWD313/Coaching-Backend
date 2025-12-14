@@ -1,5 +1,5 @@
 import express from 'express';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
 import { loadTenantFlags } from '../middlewares/tenantFlags.js';
 import exportController from '../controllers/exportController.js';
 

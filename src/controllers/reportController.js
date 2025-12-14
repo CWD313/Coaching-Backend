@@ -2,7 +2,7 @@ import PDFDocument from 'pdfkit';
 import mongoose from 'mongoose';
 import { Student } from '../models/Student.js';
 import { Attendance } from '../models/Attendance.js';
-import TestMarks from '../models/TestMarks.js';
+import { Test } from '../models/Test.js';
 import Test from '../models/Test.js';
 
 const { Types } = mongoose;

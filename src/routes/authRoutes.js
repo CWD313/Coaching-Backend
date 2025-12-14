@@ -1,6 +1,9 @@
 import express from 'express';
 import { signup, login, getProfile, updateProfile, changePassword } from '../controllers/authController.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+// -------------------------------------------------------------------------------------
+// ✅ FIX: Named Import { authMiddleware } को Default Import authMiddleware में बदला गया
+// -------------------------------------------------------------------------------------
+import authMiddleware from '../middlewares/authMiddleware.js'; 
 import { validateSignup, validateLogin, validateChangePassword } from '../middlewares/validationMiddleware.js';
 
 const router = express.Router();

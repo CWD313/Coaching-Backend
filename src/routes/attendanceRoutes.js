@@ -2,7 +2,7 @@
 
 import express from 'express';
 import attendanceController from '../controllers/attendanceController.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
 
 // ✅ FIX: 'attendanceValidationMiddleware.js' अब Named Export का उपयोग कर रहा है,
 // इसलिए हमें सभी फ़ंक्शन्स को अलग से इम्पोर्ट करना होगा।

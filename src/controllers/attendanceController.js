@@ -1,8 +1,12 @@
 // src/controllers/attendanceController.js
 
-// ✅ IMPORT FIX: Default Import को Named Import से बदला गया
-import { Attendance } from '../models/Attendance.js';
+// ✅ FIX: Attendance.js CommonJS/Default Export है
+import Attendance from '../models/Attendance.js';
+
+// ✅ FIX: Student.js Named Export है
 import { Student } from '../models/Student.js';
+
+// ✅ FIX: Coach.js Named Export है
 import { Coach } from '../models/Coach.js'; 
 
 // Batch मॉडल को हटा दिया गया है क्योंकि वह src/models/ में मौजूद नहीं है।

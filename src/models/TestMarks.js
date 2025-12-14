@@ -109,4 +109,4 @@ TestMarksSchema.pre('save', function (next) {
   next();
 });
 
-export default mongoose.model('TestMarks', TestMarksSchema);
+export const TestMarks = mongoose.model('TestMarks', TestMarksSchema);

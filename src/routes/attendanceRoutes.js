@@ -1,12 +1,19 @@
-// src/routes/attendanceRoutes.js (सुधारा गया)
+// src/routes/attendanceRoutes.js (अंतिम और सही समाधान)
 
 import express from 'express';
 import attendanceController from '../controllers/attendanceController.js';
 import { authMiddleware } from '../middlewares/authMiddleware.js';
 
-// ✅ FIX: Named Export को Default Import में बदला गया।
-//   अब 'validationMiddleware' में { validateMarkAttendance, ... } ऑब्जेक्ट होगा।
-import validationMiddleware from '../middlewares/attendanceValidationMiddleware.js';
+// ✅ FIX: 'attendanceValidationMiddleware.js' अब Named Export का उपयोग कर रहा है,
+// इसलिए हमें सभी फ़ंक्शन्स को अलग से इम्पोर्ट करना होगा।
+import {
+  validateMarkAttendance,
+  validateMarkHoliday,
+  validateGetDateAttendance,
+  validateGetMonthlyAttendance,
+  validateGetMonthlyCount,
+  validateGetAbsentList,
+} from '../middlewares/attendanceValidationMiddleware.js';
 
 const router = express.Router();
 
@@ -18,10 +25,10 @@ router.use(authMiddleware);
  * Mark attendance for multiple students on a specific date
  */
 router.post(
-  '/mark', 
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateMarkAttendance, 
-  attendanceController.markAttendance
+  '/mark', 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateMarkAttendance, 
+  attendanceController.markAttendance
 );
 
 /**
@@ -29,10 +36,10 @@ router.post(
  * Mark entire batch as holiday
  */
 router.post(
-  '/holiday', 
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateMarkHoliday, 
-  attendanceController.markHoliday
+  '/holiday', 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateMarkHoliday, 
+  attendanceController.markHoliday
 );
 
 /**
@@ -40,10 +47,10 @@ router.post(
  * Get attendance for a specific date
  */
 router.get(
-  '/date', 
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateGetDateAttendance, 
-  attendanceController.getDateAttendance
+  '/date', 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateGetDateAttendance, 
+  attendanceController.getDateAttendance
 );
 
 /**
@@ -52,8 +59,8 @@ router.get(
  */
 router.get(
   '/absent-list',
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateGetAbsentList, 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateGetAbsentList, 
   attendanceController.getAbsentStudents
 );
 
@@ -63,8 +70,8 @@ router.get(
  */
 router.get(
   '/student/monthly-count',
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateGetMonthlyCount, 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateGetMonthlyCount, 
   attendanceController.getMonthlyAbsentCount
 );
 
@@ -74,8 +81,8 @@ router.get(
  */
 router.get(
   '/monthly-report',
-  // ✅ FIX: इम्पोर्ट किए गए नाम का उपयोग करें
-  validationMiddleware.validateGetMonthlyAttendance, 
+  // ✅ FIX: अब validationMiddleware. की जरूरत नहीं है
+  validateGetMonthlyAttendance, 
   attendanceController.getMonthlyReport
 );
 

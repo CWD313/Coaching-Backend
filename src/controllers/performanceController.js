@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
-import TestMarks from '../models/TestMarks.js';
-import Test from '../models/Test.js';
-import Student from '../models/Student.js';
-import Attendance from '../models/Attendance.js';
+// ---------------------------------------------------------------------
+// ✅ FIX: सभी Model Imports को Default से Named Imports में बदला गया
+// ---------------------------------------------------------------------
+import { TestMarks } from '../models/TestMarks.js';
+import { Test } from '../models/Test.js';
+import { Student } from '../models/Student.js';
+import { Attendance } from '../models/Attendance.js';
 
 const { Types } = mongoose;
 

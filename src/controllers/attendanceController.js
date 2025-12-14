@@ -1,7 +1,6 @@
 import Attendance from '../models/Attendance.js';
 import Student from '../models/Student.js';
-import Batch from '../models/Batch.js';
-// Note: Make sure Attendance.js, Student.js, and Batch.js models are using 'export default'
+import Batch from '../models/Batch.js'; // मान लीजिए कि फ़ाइल का नाम 'Batch.js' है
 
 /**
  * Mark attendance for multiple students (auto-save on click)
